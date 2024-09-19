@@ -6,6 +6,8 @@ namespace StackProject
     internal class Program
     {
 
+        // Stack Functions
+
         static void PostFixExpression()
         {
             int FirstNum;
@@ -136,7 +138,43 @@ namespace StackProject
             Console.WriteLine("Max value is {0}", Result);
         }
 
-        
+        static void QueueReverse()
+        {
+            int UserInput;
+            StringBuilder sb = new StringBuilder ();
+            Stack<int> Stack = new Stack<int> ();
+            Queue<int> Queue = new Queue<int> ();
+            Console.WriteLine("Enter the numbers oe type \"Exit\" to Exit:");
+
+            while (int.TryParse(Console.ReadLine(), out UserInput))
+            {
+                Queue.Enqueue(UserInput);
+                Console.WriteLine("\nEnter the next number");
+            }
+            Console.Clear();
+            Console.WriteLine("Queue content before reversing");
+
+            foreach (int i in Queue)
+            {
+                sb.Append(i).Append(" ");
+            }
+            Console.WriteLine(sb.ToString());
+            while (Queue.Count > 0)
+            {
+                Stack.Push(Queue.Dequeue());
+            }
+            while (Stack.Count > 0)
+            {
+                Queue.Enqueue(Stack.Pop());
+            }
+            sb.Clear();
+            Console.WriteLine("Queue content after reversing:");
+            foreach (int i in Queue)
+            {
+                sb.Append(i).Append(" ");
+            }
+            Console.WriteLine(sb.ToString());
+        }
 
         static void Main(string[] args)
         {
