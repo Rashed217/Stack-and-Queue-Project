@@ -121,8 +121,22 @@ namespace StackProject
             }
         }
 
+        static void MaximumElements()
+        {
+            int Result;
+            int UserInput;
+            Stack<int> Stack = new Stack<int> ();
+            Console.WriteLine("Enter the numbers, or type \"s\" to start operation:");
+            while (int.TryParse(Console.ReadLine(), out UserInput))
+            {
+                Stack.Push(UserInput);
+                Console.WriteLine("\nEnter the numbers, or type \"s\" to start operation:");
+            }
+            Result = Stack.Max();
+            Console.WriteLine("Max value is {0}", Result);
+        }
 
-
+        
 
         static void Main(string[] args)
         {
