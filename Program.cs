@@ -66,7 +66,23 @@ namespace StackProject
 
         static void ReverseString()
         {
+            StringBuilder Result = new StringBuilder();
+            string UserInput;
+            Stack<char> Stack = new Stack<char>();
+            Console.WriteLine("Enter String to Reverse:");
+            UserInput = Console.ReadLine();
 
+            for (int i = 0; i < UserInput.Length ; i++)
+            {
+                Stack.Push(UserInput[i]);
+            }
+            Result.Clear();
+
+            foreach (char c in Stack)
+            {
+                Result.Append(c.ToString());
+            }
+            Console.WriteLine("Result = {0}", Result);
         }
 
         static void Main(string[] args)
