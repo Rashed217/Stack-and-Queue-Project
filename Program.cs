@@ -176,6 +176,30 @@ namespace StackProject
             Console.WriteLine(sb.ToString());
         }
 
+        static void QueuePalindrome()
+        {
+            string UserInput;
+            Stack<int> Stack = new Stack<int> ();
+            Queue<int> Queue = new Queue<int> ();
+            Console.WriteLine("Enter strings to check if palindrome:");
+            UserInput = Console.ReadLine();
+            for (int i = 0; i < UserInput.Length; i++)
+            {
+                Queue.Enqueue(UserInput[i]);
+                Stack.Push(UserInput[i]);
+            }
+
+            for (int i = 0; i < UserInput.Length; i++)
+            {
+                if (Queue.Dequeue != Stack.Pop)
+                {
+                    Console.WriteLine("Input is not Palindrome");
+                    return;
+                }
+            }
+            Console.WriteLine("Input is Palindrome");
+        }
+
         static void Main(string[] args)
         {
 
