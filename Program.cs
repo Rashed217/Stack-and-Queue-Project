@@ -85,6 +85,45 @@ namespace StackProject
             Console.WriteLine("Result = {0}", Result);
         }
 
+        static void CheckParenthesis()
+        {
+            string UserInput;
+            Stack<char> Stack = new Stack<char> ();
+            Console.WriteLine("Enter the parenthesis:");
+            UserInput = Console.ReadLine();
+            for (int i = 0; i < UserInput.Length; i++)
+            {
+                if (Stack.Count == 0)
+                {
+                    Stack.Push(UserInput[i]);
+                }
+                else
+                {
+                    if (Stack.Peek() == UserInput[i])
+                    {
+                        Stack.Push(UserInput[i]);
+                    }
+                    else
+                    {
+                        Stack.Pop();
+                    }
+                }
+
+            }
+
+            if (Stack.Count > 0)
+            {
+                Console.WriteLine("Parenthesis are not balanced");
+            }
+            else
+            {
+                Console.WriteLine("Parenthesis are balanced");
+            }
+        }
+
+
+
+
         static void Main(string[] args)
         {
 
